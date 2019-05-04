@@ -13,7 +13,6 @@ app = Flask(__name__, template_folder='templates',
             static_folder='static')
 app.config.from_object('config')
 
-
 mako.init_app(app)
 db.init_app(app)
 
@@ -35,7 +34,7 @@ def sample():
     req = json.loads(req)
     rows = DBData.query.filter(DBData.task_id == req['index']).all()
     return jsonify({
-        'data': [eval(row['data']) for row in rows],
+        'data': [[row.step, ] + eval(row.data) for row in rows],
     })
 
 

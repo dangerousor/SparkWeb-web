@@ -23,7 +23,7 @@ def run(user):
                 user=user,
                 subtime=now,
                 status="Ready",
-                task=data['data'],
+                task=json.dumps(data['data']),
                 title=data['title'],
                 note=data['note'],
             ))
@@ -46,7 +46,7 @@ def task(user):
         tmp['submitTime'] = row.subtime
         tmp['endTime'] = row.endtime
         tmp['status'] = row.status
-        tmp['task'] = row.task
+        tmp['task'] = json.loads(row.task)
         tmp['id'] = row.id
         tmp['title'] = row.title
         tmp['note'] = row.note

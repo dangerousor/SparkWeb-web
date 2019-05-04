@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>${index}数据</title>
+        <link rel="stylesheet" href="/static/css/style.css">
+        <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+        <script src="/static/js/bootstrap.min.js"></script>
+        <script src="/static/js/jquery-1.10.2.min.js"></script>
+</head>
+<body style="margin:50px">
+        <div class="data-view" style="display:block" id="data-box">
+          <div class='detail-top'>数据</div>
+          <div class="table-div" id="table-box"></div>
+        </div>
+</body>
+<script>
+      var tableBox = $("#table-box");
+      var data = {
+          "index": ${index},
+      };
+       $.post(
+      '/sample',
+      JSON.stringify(data),
+      function(reData) {
+        reData = JSON.parse(reData);
+        if (reData.row > 0) {
+          var table = $('<table class="table" border="1"></table>');
+            var tr = $('<tr></tr>');
+          table.append(tr);
+          reData.data.forEach(function (rowValue) {
+            var tr = $('<tr></tr>');
+            rowValue.forEach(function (value) {
+              var td = $('<td>'+value+'</td>');
+              tr.append(td);
+            });
+            table.append(tr);
+            table.append($('<tr></tr>'))
+          });
+          tableBox.append(table);
+        }
+      }
+      );
+</script>
+</html>

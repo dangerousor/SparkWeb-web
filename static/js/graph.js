@@ -95,6 +95,7 @@ function save_detail() {
     }
     node_details[key] = value;
   });
+  node_details['user'] = currentUserId.toString();
 
 }
 

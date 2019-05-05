@@ -412,28 +412,28 @@ details = {
     }
   ],
   "predict":[
-    {
-      "name":"label_columns",
-      "display":"非特征列名",
-      "type":"text",
-      "default":"label"
-    },
-    {
-      "name":"predict_labels",
-      "display":"预测结果列名",
-      "type":"text",
-      "default":"predict"
-    },
-    {
-      "name":"store_origin",
-      "display":"输出保留原数据",
-      "type":"list",
-      "default":"False",
-      "list":[
-        "True",
-        "False"
-      ]
-    }
+    // {
+    //   "name":"label_columns",
+    //   "display":"非特征列名",
+    //   "type":"text",
+    //   "default":"label"
+    // },
+    // {
+    //   "name":"predict_labels",
+    //   "display":"预测结果列名",
+    //   "type":"text",
+    //   "default":"predict"
+    // },
+    // {
+    //   "name":"store_origin",
+    //   "display":"输出保留原数据",
+    //   "type":"list",
+    //   "default":"False",
+    //   "list":[
+    //     "True",
+    //     "False"
+    //   ]
+    // }
   ],
   "split-col":[
     {

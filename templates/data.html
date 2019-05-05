@@ -24,6 +24,7 @@
       JSON.stringify(data),
       function(reData) {
         reData = JSON.parse(reData);
+        console.log(reData);
         if (reData.row > 0) {
           var table = $('<table class="table" border="1"></table>');
             var tr = $('<tr></tr>');

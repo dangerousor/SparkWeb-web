@@ -33,7 +33,9 @@ def sample():
     req = request.get_data().decode()
     req = json.loads(req)
     rows = DBData.query.filter(DBData.task_id == req['index']).all()
+    print(rows)
     return jsonify({
+        'row': len(rows),
         'data': [[row.step, ] + eval(row.data) for row in rows],
     })
 

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="shortcut icon" href="/static/favicon.ico">
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css">
+    <script src="/static/js/jquery-1.10.2.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/jquery.form.js"></script>
+
+</head>
+<body>
+        <h1 style="text-align: center;">欢迎使用本系统</h1>
+<div class="data-show" style="position: absolute; top: 150px; left: 45%;">
+    <div style="display: inline-block;">
+        <br>
+        <h2 style="text-align: center;">Login</h2>
+<form method="post" onsubmit="return check_login()" id="login" action="login">
+        ${ form.username.label }${ form.username }<br>
+        ${ form.password.label }${ form.password }<br>
+        ${ form.submit }
+    <a href="register">
+        <input class="btn-primary" id="register" name="register" type="button" value="注册">
+    </a>
+    </form>
+    </div>
+</div>
+<script>
+    function check_login() {
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let regex = /[a-zA-Z]+/;
+        if(username.length<3&&username.length>12){
+            alert("length of username should be in [3, 12]!");
+            return false;
+        }
+        if(!regex.test(username)){
+            alert("username should only contain alpha!");
+            return false;
+        }
+        if(password.length<6){
+            alert("length of password should be over 6!");
+            return false;
+        }
+        return true;
+    }
+
+    $(function(){
+	$("#login").ajaxForm(function(data){
+	    console.log(data);
+		if(data["status"]===0){
+            window.location = '/';
+        } else {
+		    alert(data["message"]);
+        }
+	});
+});
+</script>
+</body>
+</html>

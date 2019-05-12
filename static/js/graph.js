@@ -159,15 +159,17 @@ function run_button() {
     "note":note,
   };
   $.post(
-    '/task/run/' + currentUserId,
+    '/task/run',
     JSON.stringify(data),
     function(resp) {
+      seeTask();
       if (resp["status"] === 1) {
         alert("任务提交成功");
       } else {
         alert("任务提交失败");
       }
     });
+  $('#myTab a[href="#task"]').tab('show');
 }
 
 // function run_single_button() {
@@ -264,10 +266,16 @@ function node_dragstart(e) {
 }
 
 function node_click(e) {
+  for (let key in all_nodes) {
+    $("#"+key).css("background", "#ffffff");
+    $("#"+key).css("color", "#000000");
+  }
   var id = e.target.id;
   curr_id = id;
   var node = $("#"+id);
   var type = node.attr("data-type");
+  node.css("background", "#cc0001");
+  node.css("color", "#ffffff");
   var list = details[type];
   console.log(list);
   if (list == null) {

@@ -9,6 +9,10 @@ type_id = {
 		"kmeans":"K-Means",
 		"fpgrowth":"FP-Growth",
 		"logistic-regression":"LogisticRegression",
+		"decision-tree": "DecisionTree",
+		"svm": "SVM",
+		"naive-bayes": "NaiveBayes",
+		"word2vec": "Word2Vec",
 	},
 	"data_process": {
 		"cache": "缓存数据",
@@ -26,8 +30,8 @@ type_id = {
 		// "dropna":"丢弃缺失值",
 	},
 	"others": {
-		"predict":"预测",
-		"split-col":"拆分列",
+		// "predict":"预测",
+		"split-col":"筛选列",
 		// "split-row":"拆分行",
 		// "merge-row":"合并行",
 		// "merge-col":"合并列",

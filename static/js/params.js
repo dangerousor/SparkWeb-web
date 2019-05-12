@@ -21,6 +21,28 @@ details = {
       "default":"0.3",
     },
   ],
+  "word2vec":[
+    {
+      "name":"vectorSize",
+      "display":"向量维度",
+      "type":"number",
+      "default":"100",
+    }
+  ],
+  "decision-tree":[
+      {
+      "name":"label",
+      "display":"标签列",
+      "type":"number",
+      "default":"0"
+    },
+    {
+      "name":"numClasses",
+      "display":"标签类别数",
+      "type":"number",
+      "default":"2",
+    },
+  ],
   "logistic-regression":[
     {
       "name":"iterations",
@@ -41,49 +63,33 @@ details = {
       "default":"2",
     }
   ],
-  "knn":[
-    {
-      "name":"method",
-      "display":"方法",
-      "type":"list",
-      "default":"classify",
-      "list":[
-        "classify",
-        "regress"
-      ]
-    },
-    {
-      "name":"label_columns",
-      "display":"标签列",
-      "type":"text",
-      "default":"label"
-    }
-  ],
   "naive-bayes":[
     {
-      "name":"label_columns",
+      "name":"label",
       "display":"标签列",
-      "type":"text",
-      "default":"label"
-    }
-  ],
-  "decision-tree":[
-    {
-      "name":"method",
-      "display":"方法",
-      "type":"list",
-      "default":"classify",
-      "list":[
-        "classify",
-        "regress"
-      ]
+      "type":"number",
+      "default":"0"
     },
+          {
+      "name":"lambda",
+      "display":"平滑参数",
+      "type":"number",
+      "default":"1.0"
+    },
+  ],
+  "svm":[
     {
-      "name":"label_columns",
+      "name":"label",
       "display":"标签列",
-      "type":"text",
-      "default":"label"
-    }
+      "type":"number",
+      "default":"0"
+    },
+          {
+      "name":"iterations",
+      "display":"迭代次数",
+      "type":"number",
+      "default":"100"
+    },
   ],
   "sql-instream":[
     {

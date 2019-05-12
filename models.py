@@ -1,21 +1,8 @@
 #!/usr/bin/python
 # -*- coding:utf-8 -*-
+from flask_login import UserMixin
+
 from ext import db
-
-
-# class DBModel(db.Model):
-#     __tablename__ = 'model'
-#
-#     id = db.Column(db.INT, primary_key=True, autoincrement=True)
-#     user = db.Column(db.String(16), nullable=False)
-#     modelname = db.Column(db.String(128), nullable=False)
-#     dataname = db.Column(db.String(128), nullable=False)
-#     comment = db.Column(db.String(1024))
-#     subtime = db.Column(db.DateTime, nullable=False)
-#     endtime = db.Column(db.DateTime)
-#     status = db.Column(db.INT)
-#     category = db.Column(db.INT, nullable=False)
-#     modelfile = db.Column(db.String(128))
 
 
 class DBTask(db.Model):
@@ -26,17 +13,11 @@ class DBTask(db.Model):
     endtime = db.Column(db.DateTime)
     status = db.Column(db.TEXT, nullable=False)
     task = db.Column(db.TEXT, nullable=False)
-    user = db.Column(db.String(16), nullable=False)
+    user = db.Column(db.INT, nullable=False)
     title = db.Column(db.TEXT)
     note = db.Column(db.TEXT)
-#
-#
-# class DBTestFile(db.Model):
-#     __tablename__ = 'testfile'
-#
-#     id = db.Column(db.INT, primary_key=True, autoincrement=True)
-#     filename = db.Column(db.String(512), nullable=False)
-#     user = db.Column(db.String(16), nullable=False)
+    log = db.Column(db.TEXT)
+    is_deleted = db.Column(db.BOOLEAN, default=False)
 
 
 class DBData(db.Model):
@@ -48,9 +29,15 @@ class DBData(db.Model):
     data = db.Column(db.TEXT)
 
 
-# class DBTrainFile(db.Model):
-#     __tablename__ = 'trainfile'
-#
-#     id = db.Column(db.INT, primary_key=True, autoincrement=True)
-#     filename = db.Column(db.String(512), nullable=False)
-#     user = db.Column(db.String(16), nullable=False)
+class DBUser(db.Model):
+    __tablename__ = 'user'
+
+    index = db.Column(db.INT, primary_key=True, autoincrement=True)
+    user_id = db.Column(db.String(16), nullable=False, unique=True)
+    password = db.Column(db.TEXT, nullable=False)
+    username = db.Column(db.TEXT)
+
+
+class FlaskUser(UserMixin):
+    username = str()
+    pass

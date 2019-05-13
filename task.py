@@ -44,7 +44,7 @@ def run():
 @login_required
 def task():
     user = current_user.id
-    rows = DBTask.query.filter(DBTask.user == user).all()
+    rows = DBTask.query.filter(DBTask.user == user, DBTask.is_deleted == False).all()
     result = {'size': len(rows)}
     content = []
     for row in rows:

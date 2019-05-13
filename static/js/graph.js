@@ -94,7 +94,6 @@ function save_detail() {
       alert("<function 'save_detail'>there is something wrong, unknown type found : " + type);
     }
     node_details[key] = value;
-    node_details['user'] = currentUserId.toString();
   });
 
 }
